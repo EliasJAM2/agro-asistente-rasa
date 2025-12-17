@@ -1,19 +1,19 @@
-# Usa la imagen base oficial de Rasa
-FROM rasa/rasa:3.6.15-full
+# Usamos exactamente tu versión de PC
+FROM rasa/rasa:3.6.21-full
 
-# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia todo el proyecto (esto incluye la carpeta models)
+# Copiamos el proyecto
 COPY . /app
 
-# Permisos de root para instalar dependencias
 USER root
+# Instalamos dependencias necesarias
 RUN pip install --no-cache-dir requests
 
-# Volvemos al usuario de Rasa
+# Aseguramos que el modelo sea legible
+RUN chmod -R 777 /app/models
+
 USER 1001
 
-# Usamos CMD en lugar de ENTRYPOINT para que Render pueda manejar mejor los argumentos
-# El puerto se define con la variable $PORT que Render asigna automáticamente
+# Usamos el puerto que Render asigna automáticamente
 CMD ["run", "--enable-api", "--cors", "*", "--port", "10000"]
