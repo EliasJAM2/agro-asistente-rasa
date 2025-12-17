@@ -1,21 +1,19 @@
-# Dockerfile
-# Usa la imagen base oficial de Rasa con todas las dependencias
-FROM rasa/rasa:3.6.13-full
+# Usa la imagen base oficial de Rasa
+FROM rasa/rasa:3.6.15-full
 
-# Establece el directorio de trabajo dentro del contenedor
+# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia todo el contenido de tu proyecto al contenedor
+# Copia todo el proyecto (esto incluye la carpeta models)
 COPY . /app
 
-# Instala cualquier dependencia adicional que necesite tu modelo (como requests)
+# Permisos de root para instalar dependencias
 USER root
-RUN pip install requests
+RUN pip install --no-cache-dir requests
+
+# Volvemos al usuario de Rasa
 USER 1001
 
-# Comando para iniciar Rasa Core
-# Se expone el puerto 5005 y se habilita la API para que el frontend pueda conectarse
-
-ENTRYPOINT ["rasa", "run", "--enable-api", "--cors", "*", "--port", "5005"]
-
-
+# Usamos CMD en lugar de ENTRYPOINT para que Render pueda manejar mejor los argumentos
+# El puerto se define con la variable $PORT que Render asigna automáticamente
+CMD ["run", "--enable-api", "--cors", "*", "--port", "10000"]
