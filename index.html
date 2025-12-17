@@ -346,29 +346,32 @@
         © 2025 Asistente Agronómico Regional. Tecnología aplicada para el desarrollo del Agro Arequipeño.
     </div>
 
-    <script>
-        !(function () {
-          let e = document.createElement("script"),
-            t = document.head || document.getElementsByTagName("head")[0];
-          
-          (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
-            (e.async = !0),
-            (e.onload = () => {
-              window.WebChat.default(
-                {
-                  initPayload: "/greet",
-                  customData: { language: "es" },
-                  socketUrl: "http://localhost:5005",
-                  title: "AgroAsistente Arequipa",
-                  subtitle: "Asistencia Inmediata 🌱", 
-                  params: { storage: "session" },
-                },
-                null
-              );
-            }),
-            t.appendChild(e);
-        })();
-      </script>
+   <script>
+    !(function () {
+      let e = document.createElement("script"),
+        t = document.head || document.getElementsByTagName("head")[0];
+      
+      (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+        (e.async = !0),
+        (e.onload = () => {
+          window.WebChat.default(
+            {
+              initPayload: "/greet",
+              customData: { language: "es" },
+              // AQUÍ CAMBIAMOS LOCALHOST POR TU URL DE RENDER
+              socketUrl: "https://agro-core.onrender.com", 
+              socketPath: "/socket.io/",
+              title: "AgroAsistente Arequipa",
+              subtitle: "Asistencia Inmediata 🌱", 
+              params: { storage: "session" },
+            },
+            null
+          );
+        }),
+        t.appendChild(e);
+    })();
+  </script>
 
 </body>
+
 </html>
