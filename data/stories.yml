@@ -1,0 +1,32 @@
+version: "3.1"
+
+stories:
+- story: flujo arequipa clima
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: consulta_clima
+  - action: action_get_weather
+
+- story: flujo diagnostico plagas
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: consulta_plaga
+  - action: diagnostico_plaga_form
+  - active_loop: diagnostico_plaga_form
+  - active_loop: null
+  - action: action_pest_diagnostic
+
+- story: flujo asesoria riego completo
+  steps:
+  - intent: consulta_riego
+  - action: asesoria_riego_form
+  - active_loop: asesoria_riego_form
+  - active_loop: null
+  - action: action_asesoria_riego
+
+- story: flujo salida amable
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

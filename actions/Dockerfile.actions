@@ -1,0 +1,17 @@
+# actions/Dockerfile.actions
+# Usa la imagen base oficial del SDK de acciones de Rasa
+FROM rasa/rasa-sdk:3.7.0
+
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Copia tu archivo actions.py (y cualquier otro archivo necesario)
+COPY ./actions /app
+
+# Instala la librería requests, que usas para el clima
+USER root
+RUN pip install requests
+USER 1001
+
+# Comando para iniciar el servidor de acciones
+CMD ["rasa", "run", "actions", "--port", "5055"]

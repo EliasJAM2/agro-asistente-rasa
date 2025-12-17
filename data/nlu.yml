@@ -1,0 +1,42 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - buenos días
+
+- intent: consulta_clima
+  examples: |
+    - ¿Cómo está el clima en Camaná?
+    - clima en Islay
+    - hara frio en Chuquibamba
+    - temperatura en Santa Rita
+    - ¿Estará soleado en Santa Rita?
+    - va a llover en Camana hoy
+    - clima para Islay hoy
+
+- intent: consulta_plaga
+  examples: |
+    - tengo una plaga
+    - ayuda con mi cultivo
+    - identificar plaga de mi cultivo de papa
+    - tengo una plaga en mi cultivo de arroz
+    - ayuda tengo una plaga en mi maiz
+    - identificar plaga en mi cebolla
+
+- intent: consulta_riego 
+  examples: |
+    - necesito un plan de riego
+    - ¿cómo riego mi cultivo?
+    - asesoría de fertilización
+    - ¿cuánta agua necesita mi cebolla?
+    - consejos de riego para papa
+    - ¿cuándo debo abonar mi ajo?
+    - plan de cuidado para el arroz
+    - recomendación de riego para maíz
+
+- intent: goodbye
+  examples: |
+    - adios
+    - gracias hasta luego

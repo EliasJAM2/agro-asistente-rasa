@@ -1,0 +1,88 @@
+version: "3.1"
+
+intents:
+  - greet
+  - consulta_clima
+  - consulta_plaga
+  - consulta_riego 
+  - goodbye
+
+entities:
+  - distrito
+  - cultivo
+  - etapa_cultivo 
+  - sintoma_hoja
+  - sintoma_raiz_fruto
+
+slots:
+  distrito:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: null
+            requested_slot: null
+  cultivo:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: diagnostico_plaga_form
+            requested_slot: cultivo
+          - active_loop: asesoria_riego_form
+            requested_slot: cultivo
+  etapa_cultivo: 
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: asesoria_riego_form 
+            requested_slot: etapa_cultivo
+  sintoma_hoja:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: diagnostico_plaga_form
+            requested_slot: sintoma_hoja
+  sintoma_raiz_fruto:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: diagnostico_plaga_form
+            requested_slot: sintoma_raiz_fruto
+
+forms:
+  diagnostico_plaga_form:
+    required_slots:
+      - cultivo
+      - sintoma_hoja
+      - sintoma_raiz_fruto
+  asesoria_riego_form: 
+    required_slots:
+      - cultivo
+      - etapa_cultivo
+
+actions:
+  - action_get_weather
+  - action_pest_diagnostic
+  - action_asesoria_riego 
+
+responses:
+  utter_greet:
+    - text: "¡Hola compañero! Soy tu asistente agronómico de confianza para Arequipa. 🌾 ¿En qué puedo apoyarte hoy?"
+  utter_goodbye:
+    - text: "¡Hasta luego! Éxitos en tu cosecha arequipeña. 👋"
+  utter_ask_cultivo:
+    - text: "¿Qué cultivo tienes? (Papa 🥔, Cebolla 🧅, Ajo 🧄, Arroz 🍚 o Maíz 🌽)"
+  utter_ask_etapa_cultivo: 
+    - text: "¿En qué etapa está tu cultivo? (Germinación 🌱, Vegetativo 🌿, Floración 🌸, Cosecha ✂️)"
+  utter_ask_sintoma_hoja:
+    - text: "🧐 ¿Qué notas en las hojas? (Ej: manchas transparentes, polvo blanco, minas, puntas secas, huecos)"
+  utter_ask_sintoma_raiz_fruto:
+    - text: "🔎 ¿Qué ves en la raíz, tubérculo o mazorca? (Ej: agujeros con suciedad, color rosado, larvas blancas, granos comidos)"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

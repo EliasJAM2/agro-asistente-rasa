@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aliado Agrícola en Arequipa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #F8F8F8; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column;
+            min-height: 100vh;
+        }
+       
+        .hero-section { 
+            background-color: #388E3C; 
+            color: white; 
+            padding: 60px 20px; 
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+            border-bottom: 8px solid #FFC107; 
+        }
+        .hero-section h1 {
+            font-size: 3.5em; 
+            font-weight: 800; 
+            margin-bottom: 5px; 
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .hero-section p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+        
+        
+        .hero-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        .hero-cta {
+            background-color: #FFC107; 
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .hero-cta:hover {
+            background-color: #FFEB3B;
+        }
+
+
+       
+        .weather-bar {
+            background-color: #4CAF50; 
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .weather-bar i {
+            margin-right: 8px;
+            color: #FFC107;
+        }
+
+       
+        .alert-bar {
+            background-color: #EF5350; 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.0em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .alert-bar:hover {
+            background-color: #E53935;
+        }
+        .alert-bar i {
+            margin-right: 10px;
+        }
+
+
+        
+        .info-section {
+            background-color: white;
+            padding: 40px 30px;
+            margin: 25px auto;
+            max-width: 950px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+        .info-section h3 {
+            color: #2E7D32;
+            font-weight: 700;
+            font-size: 1.8em;
+            margin-top: 0;
+            border-bottom: 3px solid #E8F5E9;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+     
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+            text-align: center;
+        }
+       
+        .resource-link {
+            text-decoration: none; 
+            color: inherit; 
+        }
+        .resource-card {
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #DDDDDD;
+            background-color: #F9FBE7; 
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block; 
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+        .resource-card i {
+            font-size: 3.5em;
+            color: #8D6E63; 
+            margin-bottom: 15px;
+        }
+        .resource-card h4 {
+            color: #388E3C; 
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .resource-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+      
+        .community-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        
+        .footer {
+            background-color: #388E3C;
+            color: #DCE775;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            margin-top: auto; 
+        }
+
+        
+        .rw-widget-container {
+            font-family: 'Poppins', sans-serif !important;
+            border-radius: 12px;
+            overflow: hidden; 
+        }
+        .rw-header, .rw-launcher {
+            background-color: #2E7D32 !important; 
+        }
+        .rw-launcher {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+            border-radius: 50px !important; 
+        }
+        .rw-launcher:hover {
+            background-color: #388E3C !important;
+            transform: scale(1.05);
+        }
+        .rw-response {
+            background-color: #E8F5E9 !important; 
+            color: #333333 !important;
+            border-radius: 15px 15px 15px 5px !important; 
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .rw-sent {
+            background-color: #BCAAA4 !important; 
+            color: #333333 !important; 
+            border-radius: 15px 15px 5px 15px !important;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .rw-reply-box {
+            border-top: 1px solid #DDDDDD;
+            background-color: white !important;
+        }
+        .rw-reply:not(.rw-response) .rw-button-message {
+            background-color: #2E7D32 !important; 
+            color: white !important; 
+            border: 1px solid #2E7D32 !important;
+            border-radius: 20px !important;
+            font-weight: 600;
+        }
+        .rw-reply:not(.rw-response) .rw-button-message:hover {
+             background-color: #4CAF50 !important; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <h1>Tu Aliado para la Cosecha Exitosa en Arequipa</h1>
+        <p>
+            Maximiza la productividad de tu campo con información local inmediata. Accede a datos climáticos, asesoría sobre plagas y técnicas de riego optimizadas.
+        </p>
+        <a href="#chat" class="hero-cta" onclick="window.WebChat.open()">
+            <i class="fas fa-robot"></i> Pregúntale al Asistente Hoy
+        </a>
+
+        
+    </div>
+    
+    <div class="weather-bar">
+        <span><i class="fas fa-sun"></i> Majes: 25°C / 65% Humedad</span>
+        <span><i class="fas fa-cloud-showers-heavy"></i> Yura: 18°C / 30% Prob. Lluvia</span>
+        <span><i class="fas fa-temperature-high"></i> Alerta UV: 12 (Máxima)</span>
+    </div>
+
+    <div class="alert-bar" onclick="window.open('https://www.senasa.gob.pe/senasa/arequipa/', '_blank')">
+        <i class="fas fa-exclamation-triangle"></i>
+        ALERTA: SENASA ha emitido un aviso por riesgo alto de **Gorgojo de los Andes** en zonas altas. (Clic para ver más)
+    </div>
+
+
+    <div class="info-section">
+        <h3>Recursos Clave para tu Gestión Agrícola</h3>
+
+        <div class="resource-grid">
+            
+            <a href="semillas_cultivos.html" class="resource-link">
+                <div class="resource-card">
+                    <i class="fas fa-seedling"></i>
+                    <h4>🌱 Semillas y Cultivos</h4>
+                    <p>Calendario de siembra y cosecha para productos arequipeños (Ajo, Cebolla, Papa, Arroz). Guías de variedades resistentes al clima local.</p>
+                </div>
+            </a>
+
+            <a href="riego_agua.html" class="resource-link">
+                <div class="resource-card">
+                    <i class="fas fa-water"></i>
+                    <h4>💧 Riego y Agua</h4>
+                    <p>Información sobre el uso eficiente del agua (riego por goteo) y comunicados de la Autoridad Nacional del Agua (ANA) o Juntas de Usuarios.</p>
+                </div>
+            </a>
+
+            <a href="plagas_enfermedades.html" class="resource-link">
+                <div class="resource-card">
+                    <i class="fas fa-bug"></i>
+                    <h4>🦠 Plagas y Enfermedades</h4>
+                    <p>Galería Visual de las plagas más comunes en Arequipa y fichas técnicas sencillas con consejos de manejo integrado.</p>
+                </div>
+            </a>
+
+            <a href="mercado_precios.html" class="resource-link">
+                <div class="resource-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>📈 Mercado y Precios</h4>
+                    <p>Acceso a la variación de precios en el mercado local (Terminal Pesquero, Río Seco, etc.) para tus productos clave.</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h3>🤝 Conexión con Entidades y Directorio Útil</h3>
+        <p style="text-align: center; font-size: 1.1em; color: #555;">
+            Tu trabajo es importante. Aquí tienes acceso a información de contacto y capacitación oficial para mantenerte actualizado.
+        </p>
+        
+        <div class="resource-grid community-grid">
+            
+            <a href="directorio_oficial.html" class="resource-link">
+                <div class="resource-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>📞 Directorio de Entidades</h4>
+                    <p>Contactos directos de SENASA, Juntas de Regantes, Agencias Agrarias y el Centro de Investigación INIA Arequipa.</p>
+                </div>
+            </a>
+            
+            <a href="capacitacion_exito.html" class="resource-link">
+                <div class="resource-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>📚 Casos de Éxito y Capacitación</h4>
+                    <p>Historias de agricultores arequipeños que han mejorado su rendimiento y enlaces a talleres de capacitación de la DRA-Arequipa.</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="info-section" id="chat">
+        <h3>🧑‍🌾 Pregúntale Directamente al Asistente</h3>
+        <p style="text-align: center; font-size: 1.1em; color: #555;">
+            Haz clic en el ícono de **chatbot** en la esquina inferior derecha para iniciar una consulta instantánea. 
+        </p>
+        <div style="text-align: center; margin-top: 20px; padding-top: 10px; border-top: 1px solid #eee;">
+            <p><strong>Temas que puedes consultar:</strong></p>
+            <ul style="list-style: none; padding: 0; display: inline-block; text-align: left;">
+                <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> Clima para tu distrito (Islay, Majes, Yura).</li>
+                <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> Diagnóstico de plagas (Cebolla, Papa, Ajo).</li>
+                <li><i class="fas fa-check-circle" style="color:#2E7D32;"></i> Asesoría de riego por etapa de cultivo.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        © 2025 Asistente Agronómico Regional. Tecnología aplicada para el desarrollo del Agro Arequipeño.
+    </div>
+
+    <script>
+        !(function () {
+          let e = document.createElement("script"),
+            t = document.head || document.getElementsByTagName("head")[0];
+          
+          (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+            (e.async = !0),
+            (e.onload = () => {
+              window.WebChat.default(
+                {
+                  initPayload: "/greet",
+                  customData: { language: "es" },
+                  socketUrl: "http://localhost:5005",
+                  title: "AgroAsistente Arequipa",
+                  subtitle: "Asistencia Inmediata 🌱", 
+                  params: { storage: "session" },
+                },
+                null
+              );
+            }),
+            t.appendChild(e);
+        })();
+      </script>
+
+</body>
+</html>

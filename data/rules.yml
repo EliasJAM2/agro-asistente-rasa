@@ -1,0 +1,6 @@
+version: "3.1"
+rules:
+- rule: Saludo siempre
+  steps:
+  - intent: greet
+  - action: utter_greet
