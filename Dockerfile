@@ -18,3 +18,4 @@ USER 1001
 
 ENTRYPOINT ["rasa", "run", "--enable-api", "--cors", "*", "--port", "5005"]
 
+
