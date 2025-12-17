@@ -15,4 +15,5 @@ USER 1001
 
 # Comando para iniciar el servidor de acciones
 
-CMD ["start", "--actions", ".", "--port", "5055"]
+CMD ["start", "--actions", "actions", "--port", "5055"]
+
