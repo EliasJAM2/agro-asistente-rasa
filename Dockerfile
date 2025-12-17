@@ -16,4 +16,5 @@ USER 1001
 # Comando para iniciar Rasa Core
 # Se expone el puerto 5005 y se habilita la API para que el frontend pueda conectarse
 
-CMD ["rasa", "run", "--enable-api", "--port", "5005", "--credentials", "credentials.yml"]
+ENTRYPOINT ["rasa", "run", "--enable-api", "--cors", "*", "--port", "5005"]
+
